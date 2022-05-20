@@ -31,9 +31,9 @@ namespace Entra21_Vetor
             Console.WriteLine("Digite o sobrenome: ");
             sobreNomes[2] = Console.ReadLine();
 
-            Console.WriteLine("Nome: " + nomes[0] + sobreNomes[0]);
-            Console.WriteLine("Nome: " + nomes[1] + sobreNomes[1]);
-            Console.WriteLine("Nome: " + nomes[2] + sobreNomes[2]);
+            Console.WriteLine("Nomes: " + nomes[0] + sobreNomes[0]);
+            Console.WriteLine("Nomes: " + nomes[1] + sobreNomes[1]);
+            Console.WriteLine("Nomes: " + nomes[2] + sobreNomes[2]);
         }
     }
 }
