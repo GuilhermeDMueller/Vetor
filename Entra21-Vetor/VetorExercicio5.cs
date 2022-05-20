@@ -8,9 +8,26 @@ namespace Entra21_Vetor
 {
     internal class VetorExercicio5
     {
-        public void Executar();
+        public void Executar()
         {
+            double[] pesos = new double[5];
 
+            Console.WriteLine("Informe o seu Peso: ");
+            pesos[0] = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Informe o seu Peso: ");
+            pesos[1] = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Informe o seu Peso: ");
+            pesos[2] = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Informe o seu Peso: ");
+            pesos[3] = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Informe o seu Peso: ");
+            pesos[4] = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("A soma total dos Pesos é: " + (+ pesos[0] + pesos[1] + pesos[2] + pesos[3] + pesos[4]));
         }
     }
 }
