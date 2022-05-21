@@ -8,7 +8,10 @@ Console.WriteLine(@" Ação
 5 | Atividade3
 6 | Atividade4
 7 | Atividade5
+8 | Atividade6
+9 | Atividade7
 
+20| ExemploProfessor
 ");
 
 Console.WriteLine("Informe a ação: ");
@@ -49,4 +52,30 @@ else if (numeroAcao == 6)
 {
     VetorExercicio5 chinelaCantouExercicio = new VetorExercicio5();
     chinelaCantouExercicio.Executar();
+}
+else if (numeroAcao == 7)
+{
+    VetorExercicio5 dialogoExercicio = new VetorExercicio5();
+    dialogoExercicio.Executar();
+}
+else if (numeroAcao == 8)
+{
+    VetorExercicio6 beisebolExercicio = new VetorExercicio6();
+    beisebolExercicio.Executar();
+}
+else if (numeroAcao == 9)
+{
+    VetorExercicio7 ultimoExercicio = new VetorExercicio7();
+    ultimoExercicio.Executar();
+}
+
+
+
+
+
+
+else if (numeroAcao == 20)
+{
+    ExemploProfessor madExemplo = new ExemploProfessor();
+    madExemplo.Executar();
 }

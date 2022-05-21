@@ -27,7 +27,9 @@ namespace Entra21_Vetor
             Console.WriteLine("Informe o seu Peso: ");
             pesos[4] = Convert.ToDouble(Console.ReadLine());
 
+            Console.Clear();
             Console.WriteLine("A soma total dos Pesos é: " + (+ pesos[0] + pesos[1] + pesos[2] + pesos[3] + pesos[4]));
+            Console.WriteLine("A média dos Pesos é: " + (+ pesos[0] + pesos[1] + pesos[2] + pesos[3] + pesos[3] + pesos[4]) / 5);
         }
     }
 }
