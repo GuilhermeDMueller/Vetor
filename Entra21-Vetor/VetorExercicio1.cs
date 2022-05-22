@@ -15,7 +15,7 @@ namespace Entra21_Vetor
             for (int indice = 0; indice < numeros.Length; indice = indice + 1)
             {
                 Console.WriteLine("Informe o Número: ");
-                numero= Convert.ToInt32(Console.ReadLine());
+                numero = Convert.ToInt32(Console.ReadLine());
 
                 numeros[indice] = numero;
             }

@@ -10,12 +10,20 @@ namespace Entra21_Vetor
     {
         public void Executar()
         {
-            double[] altura = new double[4];
+            double menorAltura = double.MaxValue;
+            double[] alturas = new double[4];
             
-            for (int indice = 0; indice < altura.Length; indice = indice + 1)
+            for (int indice = 0; indice < alturas.Length; indice = indice + 1)
             {
+                Console.WriteLine("Informe a altura do Animal1: ");
+                alturas[0] = Convert.ToDouble(Console.ReadLine());
 
+                if (alturas[indice] > menorAltura)
+                {
+                    menorAltura = alturas[indice];
+                }
             }
+            Console.WriteLine("A menor altura é: " + menorAltura);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Entra21_Vetor
     {
         public void Executar()
         {
-            int menorIdade = int.MaxValue;
+            int maiorIdade = int.MinValue;
             int[] idades = new int[9];
             
             for (int indice = 0; indice < idades.Length; indice = indice + 1)
@@ -18,12 +18,12 @@ namespace Entra21_Vetor
                 Console.WriteLine("Informe a sua Idade: ");
                 idades[indice] = Convert.ToInt32(Console.ReadLine());
 
-                if (idades[indice] == menorIdade)
+                if (idades[indice] == maiorIdade)
                 {
-                    menorIdade = idades[indice];
+                    maiorIdade = idades[indice];
                 }
             }
-
+            Console.WriteLine("A maior idade é: " + maiorIdade);
             
         }
     }

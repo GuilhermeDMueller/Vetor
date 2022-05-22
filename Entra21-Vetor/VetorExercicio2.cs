@@ -12,47 +12,37 @@ namespace Entra21_Vetor
         {
             string[] nomes = new string[10];
 
-            Console.WriteLine("Informe o seu nome: ");
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[0] = Console.ReadLine();
 
-            Console.WriteLine("Informe o seu nome: ");
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[1] = Console.ReadLine();
-
-            Console.WriteLine("Informe o seu nome: ");
+            
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[2] = Console.ReadLine();
-
-            Console.WriteLine("Informe o seu nome: ");
+            
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[3] = Console.ReadLine();
-
-            Console.WriteLine("Informe o seu nome: ");
+            
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[4] = Console.ReadLine();
-
-            Console.WriteLine("Informe o seu nome: ");
+            
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[5] = Console.ReadLine();
 
-            Console.WriteLine("Informe o seu nome: ");
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[6] = Console.ReadLine();
 
-            Console.WriteLine("Informe o seu nome: ");
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[7] = Console.ReadLine();
 
-            Console.WriteLine("Informe o seu nome: ");
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[8] = Console.ReadLine();
 
-            Console.WriteLine("Informe o seu nome: ");
+            Console.WriteLine("Informe o nome do cliente: ");
             nomes[9] = Console.ReadLine();
 
-            Console.Clear();
-            Console.WriteLine("Nomes: " + nomes[0]);
-            Console.WriteLine("Nomes: " + nomes[1]);
-            Console.WriteLine("Nomes: " + nomes[2]);
-            Console.WriteLine("Nomes: " + nomes[3]);
-            Console.WriteLine("Nomes: " + nomes[4]);
-            Console.WriteLine("Nomes: " + nomes[5]);
-            Console.WriteLine("Nomes: " + nomes[6]);
-            Console.WriteLine("Nomes: " + nomes[7]);
-            Console.WriteLine("Nomes: " + nomes[8]);
-            Console.WriteLine("Nomes: " + nomes[9]);
+            Console.WriteLine(@"Os nomes dos clientes são: " + nomes[0] + ", " + nomes[1] + ", " + nomes[2] + ", " + nomes[3] + ", " + nomes[4] + ", " + nomes[5] + ", " + nomes[6] + ", " + nomes[7] + ", " + nomes[8] + ", " + nomes[9]);
         }
     }
 }
