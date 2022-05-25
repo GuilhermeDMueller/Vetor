@@ -36,7 +36,7 @@ namespace Entra21___IfElse
             }
             else if (numeroMenu == 4)
             {
-                Console.WriteLine("");
+                Console.WriteLine("A divisão dos valores é: " + (numero01 / numero02));
             }
         }
     }
