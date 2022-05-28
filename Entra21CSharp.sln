@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entra21-Vetor", "Entra21-Ve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entra21 - IfElse", "Entra21 - IfElse\Entra21 - IfElse.csproj", "{3E782CE1-6548-4B02-A9F0-DF322AF4FC00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entra21_OrientacaoObjeto2", "Entra21_OrientacaoObjeto2\Entra21_OrientacaoObjeto2.csproj", "{EF9E8706-3E06-414A-83F4-9E439212C639}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entra21_OrientacaoObjeto2", "Entra21_OrientacaoObjeto2\Entra21_OrientacaoObjeto2.csproj", "{EF9E8706-3E06-414A-83F4-9E439212C639}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entra21OrientacaoObjeto", "Entra21OrientacaoObjeto", "{D05BDEA6-9B22-4D94-B515-7B662529A13B}"
 EndProject
@@ -20,9 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IfElseExercicie", "IfElseEx
 		Entra21 - IfElse\Program.cs = Entra21 - IfElse\Program.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entra21OrientacaoObjeto.Test", "Entra21OrientacaoObjeto.Test\Entra21OrientacaoObjeto.Test.csproj", "{0A1F5535-5792-4088-9A27-9D5ED5000832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entra21OrientacaoObjeto.Test", "Entra21OrientacaoObjeto.Test\Entra21OrientacaoObjeto.Test.csproj", "{0A1F5535-5792-4088-9A27-9D5ED5000832}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrientacaoObjetosExercicios", "OrientacaoObjetosExercicios\OrientacaoObjetosExercicios.csproj", "{FE5F2141-1804-4A0D-89E0-D1F3FECD8BD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrientacaoObjetosExercicios", "OrientacaoObjetosExercicios\OrientacaoObjetosExercicios.csproj", "{FE5F2141-1804-4A0D-89E0-D1F3FECD8BD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrientacaoObjetosExerciciosTest", "OrientacaoObjetosExerciciosTest\OrientacaoObjetosExerciciosTest.csproj", "{32A30FC4-2E29-4700-B666-2E1EBF4F81DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 		{FE5F2141-1804-4A0D-89E0-D1F3FECD8BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE5F2141-1804-4A0D-89E0-D1F3FECD8BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE5F2141-1804-4A0D-89E0-D1F3FECD8BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A30FC4-2E29-4700-B666-2E1EBF4F81DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A30FC4-2E29-4700-B666-2E1EBF4F81DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A30FC4-2E29-4700-B666-2E1EBF4F81DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A30FC4-2E29-4700-B666-2E1EBF4F81DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

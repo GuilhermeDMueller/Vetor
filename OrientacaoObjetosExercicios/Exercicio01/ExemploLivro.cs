@@ -16,7 +16,8 @@ namespace OrientacaoObjetosExercicios.Exercicio01
             livro.QuantidadePaginas = 272;
             livro.QuantidadePaginasLidas = 146;
 
-            livro.ApresentarTituloAutor();
+            livro.ApresentarTitulo();
+            livro.ApresentarAutor();
             livro.ApresentarQuantidadePaginasLer();
             livro.ApresentarQuantidadePaginasLidas();
         }

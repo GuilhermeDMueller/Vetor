@@ -12,22 +12,28 @@ namespace OrientacaoObjetosExercicios.Exercicio01
         public int CodigoIsbn, DataDeLancamento, QuantidadePaginas, QuantidadePaginasLidas, QuantidadeDeReleituras;
         public string Nome = " ";
 
-        public string ApresentarTituloAutor()
+        public void ApresentarTitulo()
         {
-            Console.Write("O nome do Livro é: " + Titulo);
-            Console.Write("O nome do Autor do Livro é: " + Autor);
+            Console.WriteLine("O nome do Livro é: " + Titulo);
 
-            return 
         }
 
+        public void ApresentarAutor()
+        {
+            Console.WriteLine("O nome do Autor do Livro é: " + Autor);
+
+        }
+        
         public void ApresentarQuantidadePaginasLer()
         {
-            Console.Write("A quantidade de Paginas para ler é de: " + QuantidadePaginas);
+            Console.WriteLine("A quantidade de Paginas para ler é de: " + QuantidadePaginas);
+
         }
 
         public void ApresentarQuantidadePaginasLidas()
         {
-            Console.Write("A quantidade de Páginas lidas é de: " + QuantidadePaginasLidas);
+            Console.WriteLine("A quantidade de Páginas lidas é de: " + QuantidadePaginasLidas);
+
         }
     }
 }
