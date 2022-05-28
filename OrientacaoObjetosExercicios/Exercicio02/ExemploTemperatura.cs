@@ -17,7 +17,6 @@ namespace OrientacaoObjetosExercicios.Exercicio02
 
 
             temperatura.ApresentarOrigemGraus();
-            temperatura.;
 
             Console.WriteLine("Informe a Temperatura de Origem: ");
             temperatura.Origem = Console.ReadLine();
