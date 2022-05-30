@@ -11,96 +11,99 @@ namespace OrientacaoObjetosExerciciosTest.TemperaturaTest02
 {
     public class Temperatura02Tests
     {
-        [Fact]
-
-        public void Validar_Calculo_Celsius_Para_Kelvin()
+        [Theory]
+        [InlineData(32, 305.15)]
+        public void Validar_Calculo_Celsius_Para_Kelvin(double valorTemperatura, double temperaturaConvertidaEsperada)
         {
             // Arrenge
             var temperatura = new Temperatura();
-            temperatura.ValorTemperatura = 32;
+            temperatura.ValorTemperatura = valorTemperatura;
 
             // Act
             var temperaturaConvertida = temperatura.CalcularCelsiusParaKelvin();
 
             // Assert
-            temperaturaConvertida.Should().Be(32 + 273.15);
+            temperaturaConvertida.Should().Be(temperaturaConvertidaEsperada);
         }
 
-        [Fact]
-
-        public void Validar_Calculo_Celsius_Para_Fahrenheit()
+        [Theory]
+        [InlineData(32, 89.6)]
+        
+        public void Validar_Calculo_Celsius_Para_Fahrenheit(double valorTemperatura, double temperaturaConvertidaEsperada)
         {
             // Arrenge
             var temperatura = new Temperatura();
-            temperatura.ValorTemperatura = 32;
+            temperatura.ValorTemperatura = valorTemperatura;
 
             // Act
             var temperaturaConvertida = temperatura.CalcularCelsiusParaFahrenheit();
 
             // Assert
-            temperaturaConvertida.Should().Be(32 * 9 / 5 + 32);
-
-
+            temperaturaConvertida.Should().Be(temperaturaConvertidaEsperada);
         }
 
-        [Fact]
+        [Theory]
+        [InlineData(32, -241.14999999999998)]
 
-        public void Validar_Calculo_Kelvin_Para_Celsius()
+        public void Validar_Calculo_Kelvin_Para_Celsius(double valorTemperatura, double temperaturaConvertidaEsperada)
         {
             // Arreng
             var temperatura = new Temperatura();
-            temperatura.ValorTemperatura = 32;
+            temperatura.ValorTemperatura = valorTemperatura;
 
             // Act
             var temperaturaConvertida = temperatura.CalcularKelvinParaCelsius();
 
             // Assert
-            temperaturaConvertida.Should().Be(32 - 273.15);
+            temperaturaConvertida.Should().Be(temperaturaConvertidaEsperada);
         }
 
-        [Fact]
+        [Theory]
+        [InlineData(32, -402.07)]
 
-        public void Validar_Calculo_Kelvin_Para_Fahrenheit()
+        public void Validar_Calculo_Kelvin_Para_Fahrenheit(double valorTemperatura, double temperaturaConvertidaEsperada)
         {
             // Arreng
             var temperatura = new Temperatura();
-            temperatura.ValorTemperatura = 32;
+            temperatura.ValorTemperatura = valorTemperatura;
 
             // Act
             var temperaturaConvertida = temperatura.CalcularKelvinParaFahrenheit();
 
             // Assert
-            temperaturaConvertida.Should().Be(32  * 9 / 5 - 459.67);
+            temperaturaConvertida.Should().Be(temperaturaConvertidaEsperada);
         }
 
-        [Fact]
+        [Theory]
+        [InlineData(32, 0)]
 
-        public void Validar_Calculo_Fahrenheit_Para_Celsius()
+        public void Validar_Calculo_Fahrenheit_Para_Celsius(double valorTemperatura, double temperaturaConvertidaEsperada)
         {
             // Arrent
             var temperatura = new Temperatura();
-            temperatura.ValorTemperatura = 32;
+            temperatura.ValorTemperatura = valorTemperatura;
 
             // Act
             var temperaturaConvertida = temperatura.CalcularFahrenheitParaCelsius();
 
             // Assert
-            temperaturaConvertida.Should().Be((32 - 32) * 5 / 9);
+            temperaturaConvertida.Should().Be(temperaturaConvertidaEsperada);
         }
 
-        [Fact]
+        [Theory]
+        [InlineData(32, 273.15)]
 
-        public void Validar_Calculo_Fahrenheit_Para_Kelvin()
+        public void Validar_Calculo_Fahrenheit_Para_Kelvin(double valorTemperatura, double temperaturaConvertidaEsperada)
         {
             // Arrent
             var temperatura = new Temperatura();
-            temperatura.ValorTemperatura = 32;
+            temperatura.ValorTemperatura = valorTemperatura;
 
             // Act
             var temperaturaConvertida = temperatura.CalcularFahrenheitParaKelvin();
 
             // Assert
-            temperaturaConvertida.Should().Be((32 + 459.67) * 5 / 9);
+            temperaturaConvertida.Should().Be(temperaturaConvertidaEsperada);
         }
     }
 }

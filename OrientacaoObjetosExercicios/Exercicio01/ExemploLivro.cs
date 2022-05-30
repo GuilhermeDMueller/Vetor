@@ -15,11 +15,13 @@ namespace OrientacaoObjetosExercicios.Exercicio01
             livro.Autor = "William P. Young.";
             livro.QuantidadePaginas = 272;
             livro.QuantidadePaginasLidas = 146;
+            livro.DataDeLancamento = 2007;
 
             livro.ApresentarTitulo();
             livro.ApresentarAutor();
             livro.ApresentarQuantidadePaginasLer();
             livro.ApresentarQuantidadePaginasLidas();
+            livro.ApresentarQuantidadeAnoAposPublicacao();
         }
     }
 }

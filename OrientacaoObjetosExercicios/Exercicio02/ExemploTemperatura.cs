@@ -11,7 +11,7 @@ namespace OrientacaoObjetosExercicios.Exercicio02
         public void Executar()
         {
             var temperatura = new Temperatura();
-            temperatura.ValorTemperatura = 38;
+            temperatura.ValorTemperatura = 32;
             temperatura.Origem = " ";
             temperatura.Destino = " ";
 
