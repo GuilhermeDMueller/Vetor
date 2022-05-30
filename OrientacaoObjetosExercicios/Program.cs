@@ -23,6 +23,6 @@ else if (numeroFuncao == 2)
 }
 else if (numeroFuncao == 3)
 {
-    ExemploConversorAscii noeExercicio = new ExemploConversorAscii();
+   ExemploCodigoAscii noeExercicio = new ExemploCodigoAscii();
     noeExercicio.Executar();
 }
