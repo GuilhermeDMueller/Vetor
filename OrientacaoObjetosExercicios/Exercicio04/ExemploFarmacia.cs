@@ -11,17 +11,23 @@ namespace OrientacaoObjetosExercicios.Exercicio04
         public void Executar()
         {
             var farmacia = new Farmacia();
-            farmacia.NomeProduto01 = "";
-            farmacia.PrecoProduto01 = ;
-            farmacia.CategoriaProduto01 = "";
-            farmacia.NomeProduto02 = "";
-            farmacia.PrecoProduto02 = ;
-            farmacia.CategoriaProduto02 = "";
-            farmacia.NomeProduto03 = "";
-            farmacia.PrecoProduto03 = ;
-            farmacia.CategoriaProduto03 = "";
-            farmacia.RazaoSocial = "";
-            farmacia.Cnpj = ;
+            farmacia.RazaoSocial = "Farmacia do Zé.";
+            farmacia.NomeProduto01 = "Torsilax.";
+            farmacia.PrecoProduto01 = 17.89;
+            farmacia.CategoriaProduto01 = "Medicamento para dor.";
+            farmacia.NomeProduto02 = "Ibuprofeno.";
+            farmacia.PrecoProduto02 = 25.65;
+            farmacia.CategoriaProduto02 = "Medicamento Anti-inflamatório.";
+            farmacia.NomeProduto03 = "Escova de Dentes infantil.";
+            farmacia.PrecoProduto03 = 12.41;
+            farmacia.CategoriaProduto03 = "Iten de Higiene Pessoal.";
+            farmacia.Cnpj = "165-8 | Empresário Comercial.";
+
+            farmacia.ApresentarTotalPedido();
+            farmacia.ApresentarTotalPedidoCategoria();
+            farmacia.ApresentarQuantidadeCategoria();
+            farmacia.ApresentarNomeProdutoMaisCaro();
+            farmacia.ApresentarNomeCategoriaProdutoMaisBarato();
 
         }
     }
