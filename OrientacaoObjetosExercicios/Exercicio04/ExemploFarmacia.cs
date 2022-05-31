@@ -24,8 +24,12 @@ namespace OrientacaoObjetosExercicios.Exercicio04
             farmacia.Cnpj = "165-8 | Empresário Comercial.";
 
             farmacia.ApresentarTotalPedido();
-            farmacia.ApresentarTotalPedidoCategoria();
-            farmacia.ApresentarQuantidadeCategoria();
+            farmacia.ApresentarTotalPedidoCategoria01();
+            farmacia.ApresentarTotalPedidoCategoria02();
+            farmacia.ApresentarTotalPedidoCategoria03();
+            farmacia.ApresentarQuantidadeCategoria01();
+            farmacia.ApresentarQuantidadeCategoria02();
+            farmacia.ApresentarQuantidadeCategoria03();
             farmacia.ApresentarNomeProdutoMaisCaro();
             farmacia.ApresentarNomeCategoriaProdutoMaisBarato();
 
