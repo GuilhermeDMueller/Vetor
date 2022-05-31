@@ -1,11 +1,13 @@
 ﻿using OrientacaoObjetosExercicios.Exercicio01;
 using OrientacaoObjetosExercicios.Exercicio02;
 using OrientacaoObjetosExercicios.Exercicio03;
+using OrientacaoObjetosExercicios.Exercicio04;
 
 Console.Write(@"Infome a Ação: 
 1 | ExercicioLivro
 2 | ExercícioTemperatura
 3 | ExercícioAscii
+4 | ExercícioFármacia
 
 ");
 
@@ -25,4 +27,9 @@ else if (numeroFuncao == 3)
 {
    ExemploCodigoAscii noeExercicio = new ExemploCodigoAscii();
     noeExercicio.Executar();
+}
+else if (numeroFuncao == 4)
+{
+    ExemploFarmacia linkExercicio = new ExemploFarmacia();
+    linkExercicio.Executar();
 }

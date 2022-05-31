@@ -14,17 +14,7 @@ namespace OrientacaoObjetosExercicios.Exercicio03
             ascii.ValorCodigo = 106;
 
             Console.WriteLine("Informe o Caracter Desejado: ");
-            var character = Console.ReadLine();
-
-            if ((character == "j") || (character == "J"))
-            {
-                Console.WriteLine("106");
-            }
-
-            else if ((character != "j") || (character != "J"))
-            {
-                Console.WriteLine("Character");
-            }
+            var character = Console.ReadLine();   
         }
     }
 }
