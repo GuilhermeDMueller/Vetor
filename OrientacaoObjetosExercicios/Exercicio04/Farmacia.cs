@@ -36,7 +36,27 @@ namespace OrientacaoObjetosExercicios.Exercicio04
 
             return totalPedido;
         }
+        public double ApresentarQuantidadeCategoria01()
+        {
+            var totalQuantidade = QuantidadeProduto01;
 
+            return totalQuantidade;
+        }
+        public double ApresentarQuantidadeCategoria02()
+        {
+            var totalQuantidade = QuantidadeProduto02;
 
+            return totalQuantidade;
+        }
+        public double ApresentarQuantidadeCategoria03()
+        {
+            var totalQuantidade = QuantidadeProduto03;
+
+            return totalQuantidade;
+        }
+        public double ApresentarNomeProdutoMaisCaro()
+        {
+            var nomeProdutoCaro = 20.00;
+        }
     }
 }
