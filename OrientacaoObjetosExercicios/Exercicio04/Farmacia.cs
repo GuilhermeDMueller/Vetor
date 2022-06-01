@@ -11,15 +11,15 @@ namespace OrientacaoObjetosExercicios.Exercicio04
         public string RazaoSocial, NomeProduto01, NomeProduto02, NomeProduto03, CategoriaProduto01, CategoriaProduto02, CategoriaProduto03, Cnpj;
         public double PrecoProduto01, PrecoProduto02, PrecoProduto03, QuantidadeProduto01, QuantidadeProduto02, QuantidadeProduto03;
 
-        public double ApresentarTotalPedido()
+        public string ApresentarTotalPedido()
         {
-            var totalPedido = (PrecoProduto01 * QuantidadeProduto01) + (PrecoProduto02 * QuantidadeProduto02) + (PrecoProduto03 * QuantidadeProduto03);
+            var totalPedido = NomeProduto01 + " Total: " + PrecoProduto01;
 
             return totalPedido;
         }
-        public double ApresentarTotalPedidoCategoria01()
+        public string ApresentarTotalPedidoCategoria01()
         {
-            var totalPedido = PrecoProduto01 * QuantidadeProduto01;
+            var totalPedido = NomeProduto01 + " Total: " + PrecoProduto01;
 
             return totalPedido;
         }
@@ -29,7 +29,6 @@ namespace OrientacaoObjetosExercicios.Exercicio04
 
             return totalPedido;
         }
-
         public double ApresentarTotalPedidoCategoria03()
         {
             var totalPedido = PrecoProduto03 * QuantidadeProduto03;
@@ -54,9 +53,17 @@ namespace OrientacaoObjetosExercicios.Exercicio04
 
             return totalQuantidade;
         }
-        public double ApresentarNomeProdutoMaisCaro()
+        public string ApresentarNomeProdutoMaisCaro()
         {
-            var nomeProdutoCaro = 20.00;
+            var nomeProdutoCaro = NomeProduto02;
+
+            return nomeProdutoCaro;
+        }
+        public string ApresentarNomeCategoriaProdutoMaisBarato()
+        {
+            var nomeProdutoCategoriaMaisBarato = NomeProduto03 + CategoriaProduto03;
+
+            return nomeProdutoCategoriaMaisBarato;
         }
     }
 }

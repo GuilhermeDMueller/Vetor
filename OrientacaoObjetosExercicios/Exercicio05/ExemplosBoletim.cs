@@ -8,6 +8,10 @@ namespace OrientacaoObjetosExercicios.Exercicio05
 {
     public class ExemplosBoletim
     {
-        var boletim = new Boletim();
+        public void Executar()
+        {
+            var boletim = new Boletim();
+
+        }
     }
 }
