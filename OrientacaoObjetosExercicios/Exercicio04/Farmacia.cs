@@ -9,11 +9,12 @@ namespace OrientacaoObjetosExercicios.Exercicio04
     public class Farmacia
     {
         public string RazaoSocial, NomeProduto01, NomeProduto02, NomeProduto03, CategoriaProduto01, CategoriaProduto02, CategoriaProduto03, Cnpj;
-        public double PrecoProduto01, PrecoProduto02, PrecoProduto03, QuantidadeProduto01, QuantidadeProduto02, QuantidadeProduto03;
+        public double PrecoProduto01, PrecoProduto02, PrecoProduto03;
+        public int QuantidadeProduto01, QuantidadeProduto02, QuantidadeProduto03;
 
         public string ApresentarTotalPedido()
         {
-            var totalPedido = NomeProduto01 + " Total: " + PrecoProduto01;
+            var totalPedido = (NomeProduto01 + " Total: " + PrecoProduto01) + (NomeProduto02 + " Total: " + PrecoProduto02) + (NomeProduto03 + " Total: " + PrecoProduto03);
 
             return totalPedido;
         }
@@ -23,31 +24,31 @@ namespace OrientacaoObjetosExercicios.Exercicio04
 
             return totalPedido;
         }
-        public double ApresentarTotalPedidoCategoria02()
+        public string ApresentarTotalPedidoCategoria02()
         {
-            var totalPedido = PrecoProduto02 * QuantidadeProduto02;
+            var totalPedido = NomeProduto02 + " Total: " + PrecoProduto02;
 
             return totalPedido;
         }
-        public double ApresentarTotalPedidoCategoria03()
+        public string ApresentarTotalPedidoCategoria03()
         {
-            var totalPedido = PrecoProduto03 * QuantidadeProduto03;
+            var totalPedido = NomeProduto03 + " Total: " + PrecoProduto03;
 
             return totalPedido;
         }
-        public double ApresentarQuantidadeCategoria01()
+        public int ApresentarQuantidadeCategoria01()
         {
             var totalQuantidade = QuantidadeProduto01;
 
             return totalQuantidade;
         }
-        public double ApresentarQuantidadeCategoria02()
+        public int ApresentarQuantidadeCategoria02()
         {
             var totalQuantidade = QuantidadeProduto02;
 
             return totalQuantidade;
         }
-        public double ApresentarQuantidadeCategoria03()
+        public int ApresentarQuantidadeCategoria03()
         {
             var totalQuantidade = QuantidadeProduto03;
 
