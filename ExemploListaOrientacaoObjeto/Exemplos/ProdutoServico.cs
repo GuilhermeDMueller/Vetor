@@ -24,7 +24,26 @@ namespace ExemploListaOrientacaoObjeto.Exemplos
             produtos.Add(produto);
         }
         public void Editar() { }
-        public void Apagar() { }
+        public void Apagar(int codigo) 
+        {
+            for (int indice = 0; indice < produtos.Count; indice++)
+            {
+                // Resgatando de uma lista de tipos Primitivos
+                // int numero = numero[indice];
+
+                // Resgatando de uma lista de objetos
+                Produto produto = produtos[indice];
+                if (produto.Codigo == codigo)
+                {
+                    // Posso remover com o indice do objeto desejado
+                    produtos.RemoveAt(indice);
+
+                    // Posso remover com o objeto desejado
+                    // produtos.Remove(produto);
+                }
+            }
+        
+        }
         
         public List<Produto> ObterTodos()
         {

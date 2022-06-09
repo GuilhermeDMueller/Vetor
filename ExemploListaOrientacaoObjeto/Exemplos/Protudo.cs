@@ -6,6 +6,7 @@
         public string Nome;
         public double PrecoUnitario;
         public ProdutoLocalizacao Localizacao;
+        // Alt + SHIFT + .
 
         public double CalcularPrecoTotal()
         {
