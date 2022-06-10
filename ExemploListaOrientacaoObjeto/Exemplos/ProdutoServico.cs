@@ -26,6 +26,7 @@ namespace ExemploListaOrientacaoObjeto.Exemplos
             produto.Codigo = codigoAtual;
 
             // Adicionar 1 no codigo atual para quando s
+            codigoAtual++;
 
             // Adicionar o produto instanciado na lista de produtos
             produtos.Add(produto);

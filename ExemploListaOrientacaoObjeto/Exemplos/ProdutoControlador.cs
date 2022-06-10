@@ -26,17 +26,92 @@
                 else if (codigo == 3)
                 {
                     // Menu escolhido para editar produto
-                    // Editar();
+                    Editar();
                 }
                 else if (codigo == 4)
                 {
-                    // Apagar();
+                    Apagar();
                 }
                 else if (codigo == 5)
                 {
-                    // ApresentarProduto();
+                    ApresentarProduto();
                 }
                 Thread.Sleep(1000);
+            }
+        }
+
+        private void ApresentarProduto()
+        {
+            ApresentarProdutos();
+            Console.WriteLine("Digite o código do produto a ser detalhado: ");
+            int codigo = Convert.ToInt32(Console.ReadLine());
+
+            var produto = produtoServico.ObterPorCodigo(codigo);
+
+            // Verificar se o produto não está cadastrado na lista de produtos
+            if (produto == null)
+            {
+                Console.WriteLine("Produto não Cadastrado");
+
+                return;
+            }
+
+            Console.Clear();
+            Console.WriteLine(@$"Código: {produto.Codigo}
+Nome: {produto.Nome}
+Preço Unitário: {produto.PrecoUnitario}
+Quantidade: {produto.Quantidade}
+Total: {produto.CalcularPrecoTotal()}");
+        }
+
+        private void Apagar()
+        {
+            ApresentarProdutos();
+
+            Console.WriteLine("Digite o código do produto para apagar: ");
+            int codigo = Convert.ToInt32(Console.ReadLine());
+
+            var registroApagdo = produtoServico.Apagar(codigo);
+
+            Console.WriteLine(registroApagdo == true
+                ? "Registro removido com sucesso" 
+                : "Nenhum produto cadastrado com o código informado");
+        }
+
+        private void Editar()
+        {
+            ApresentarProdutos();
+
+            Console.WriteLine("Código do produto desejado: ");
+            var codigo = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Nome: ");
+            var nome = Console.ReadLine();
+
+            Console.Write("Quantidade: ");
+            var quantidade = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Preço Unitário: ");
+            var precoUnitario = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine(@"Localizaçõe Disponiveis: 
+- Armazen
+- Area Venda
+- Loja");
+            Console.Write("Localização: ");
+            var localizacao = Console.ReadLine();
+
+            var localizacaoProduto = ObterLocalizacaoProduto(localizacao);
+
+            var alterou = produtoServico.Editar(codigo, nome, precoUnitario, localizacaoProduto, quantidade);
+
+            if (alterou == false)
+            {
+                Console.WriteLine("Código digitado não existe");
+            }
+            else
+            {
+                Console.WriteLine("Produto alterado com sucesso");
             }
         }
 
@@ -96,6 +171,7 @@
 
             produtoServico.Adicionar(nome, precoUnitario, localizacaoProduto, quantidade);
         }
+
         private ProdutoLocalizacao ObterLocalizacaoProduto(string localizacao)
         {
             if (localizacao.ToLower() == "armazen")
@@ -129,7 +205,8 @@
             {
                 var produtoAtual = produtos[indice];
 
-                Console.WriteLine("Nome: " + produtoAtual.Nome + " Preço Unitário: " + produtoAtual.PrecoUnitario);
+                Console.WriteLine(
+                    "\nCódigo: " + produtoAtual.Codigo + "\nNome: " + produtoAtual.Nome + "\n");
             }
         }
     }
