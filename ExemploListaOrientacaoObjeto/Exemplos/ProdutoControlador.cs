@@ -71,9 +71,9 @@ Total: {produto.CalcularPrecoTotal()}");
             Console.WriteLine("Digite o código do produto para apagar: ");
             int codigo = Convert.ToInt32(Console.ReadLine());
 
-            var registroApagdo = produtoServico.Apagar(codigo);
+            var registroApagado = produtoServico.Apagar(codigo);
 
-            Console.WriteLine(registroApagdo == true
+            Console.WriteLine(registroApagado == true
                 ? "Registro removido com sucesso" 
                 : "Nenhum produto cadastrado com o código informado");
         }

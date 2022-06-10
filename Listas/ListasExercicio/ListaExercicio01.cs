@@ -18,25 +18,21 @@ namespace Listas.ListasExercicio
             filmes.Add("Quarteto Fantástico");
 
             filmes[0] = "Dragon Ball Super: Broly";
-            filmes[1] = "Titanic2";
+            filmes[1] = "Titanic 2";
             filmes.Remove("Lanterna Verde");
 
-            var indiceFilme = filmes.Contains("Lanterna Verde");
-            indiceFilme = filmes.Contains("A Lagoa Azul");
-
             Console.Clear();
-            Console.WriteLine("[0]: " + filmes[0] + "\n[1]: " + filmes[1]+ "\n[2]: " + filmes[2] + "\n[3]: " + filmes[3]);
-
+            Console.WriteLine("[1]: " + filmes[0] + "\n[2]: " + filmes[1] + "\n[3]: " + filmes[2] + "\n[4]: " + filmes[3]);
             if (filmes.Contains("Lanterna Verde") == true)
-                Console.WriteLine("O filme Lanterna Verde está Cadastrado e pronto para assistir.");
+                Console.WriteLine("O Filme Lanterna Verde está Cadastrado e pronto para assistir.");
 
             else
-                Console.WriteLine("O filme Lanterna Verde não está Cadastrado.");
+                Console.WriteLine("O Filme Lanterna Verde não está Cadastrado.");
 
             if (filmes.Contains("A Lagoa Azul") == true)
-                Console.WriteLine("O filme A Lagoa Azul está Cadastrado e pronto para assistir.");
+                Console.WriteLine("O Filme A Lagoa Azul está Cadastrado e pronto para Assistir.");
             else
-                Console.WriteLine("O filme A Lagoa Azul não está Cadastrado.");
+                Console.WriteLine("O Filme A Lagoa Azul não está Cadastrado.");
         }
     }
 }

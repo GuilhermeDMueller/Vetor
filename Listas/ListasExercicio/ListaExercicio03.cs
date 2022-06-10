@@ -10,26 +10,24 @@ namespace Entra21___Listas.ListasExercicio
     {
         public void Executar()
         {
+            Console.Clear();
             List<double> notas = new List<double>();
-            Console.Clear();
-            Console.WriteLine("Informe a Nota01: ");
+            Console.WriteLine("Informe a primeira nota do Semestre: ");
             notas.Add(Convert.ToDouble(Console.ReadLine()));
-            Console.WriteLine("Informe a Nota02: ");
+            Console.WriteLine("Informe a segunda nota do Semestre: ");
             notas.Add(Convert.ToDouble(Console.ReadLine()));
-            Console.WriteLine("Informe a Nota03: ");
+            Console.WriteLine("Informe a terceira nota do Semestre: ");
             notas.Add(Convert.ToDouble(Console.ReadLine()));
 
-            double media = (notas[0] + notas[1] + notas[2]) / 3;
-
-            Console.Clear();
-            Console.WriteLine("[0]: " + notas[0] + "\n[1]: " + notas[1] + "\n[2]: " + notas[2]);
-            Console.WriteLine("A média das Notas é: " + media.ToString("F"));
-            if (media <= 3.9)
-                Console.WriteLine("A média é Baixa.");
-            else if ((media > 3.9) && (media < 6.9))
-                Console.WriteLine("A média é ruim e tem que ser melhorada.");
-            else if (media > 7.0)
-                Console.WriteLine("A média está Boa e pode ser melhorada.");
+            var media = ((notas[0] + notas[1] + notas[2]) / 3);
+            Console.WriteLine("Média: " + media);
+            
+            if (media <= 4.9)
+                Console.WriteLine("A média está baixa.");
+            else if ((media > 5.0) && (media < 7.0))
+                Console.WriteLine("A média está boa mas tem que ser melhorada.");
+            else if ((media > 7.1) && (media <= 10.0))
+                Console.WriteLine("O aluno com a Média: " + media + " pode tirar dois dias de descanso(na aula).");
         }
     }
 }
