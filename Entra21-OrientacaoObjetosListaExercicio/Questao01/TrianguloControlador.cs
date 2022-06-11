@@ -42,7 +42,7 @@ namespace Entra21_OrientacaoObjetosListaExercicio.Questao01
         }
         private void ApresentarTriangulo()
         {
-            ApresentarTriangulo();
+            ApresentarTriangulos();
             Console.WriteLine("Digite o código do triangulo desejado: ");
             int codigo = Convert.ToInt32(Console.ReadLine());
 
@@ -106,12 +106,12 @@ Tamanho Lado03: {triangulo.Lado03}");
             Console.WriteLine("Lado03: ");
             var lado03 = Convert.ToDouble(Console.ReadLine());
 
-            //var alterou = trianguloServico.Editar(lado01, lado02, lado03);
+            var alterou = trianguloServico.Editar(codigoEditar,lado01, lado02, lado03);
 
-            //if (alterou == false)
-            //    Console.WriteLine("Código Digitado não Existe.");
-            //else
-            //    Console.WriteLine("Triangulo alterado com sucesso.");
+            if (alterou == false)
+                Console.WriteLine("Código Digitado não Existe.");
+            else
+                Console.WriteLine("Triangulo alterado com sucesso.");
         }
         private int ApresentarSolicitarMenu()
         {
@@ -142,6 +142,23 @@ Tamanho Lado03: {triangulo.Lado03}");
                 }
             }
             return codigo;
+        }
+        private void ApresentarTriangulos()
+        {
+            var triangulos = trianguloServico.ObterTodos();
+
+            if (triangulos.Count == 0)
+            {
+                Console.WriteLine("Triangulo não cadastrado");
+
+                return;
+            }
+            Console.WriteLine("Lista dos Triangulos");
+            for (var indice = 0; indice < triangulos.Count; indice++)
+            {
+                var trianguloAtual = triangulos[indice];
+                Console.WriteLine("\nCódigo: " + trianguloAtual.Codigo);
+            }
         }
     }
 }

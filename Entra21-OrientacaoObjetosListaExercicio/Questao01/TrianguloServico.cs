@@ -18,11 +18,14 @@ namespace Entra21_OrientacaoObjetosListaExercicio.Questao01
             triangulo.Lado02 = lado02;
             triangulo.Lado03 = lado03;
 
-            triangulo.Codigo = 1;
+            triangulo.Codigo = codigoAtual;
 
             triangulo.Codigo = codigoAtual++;
 
-            triangulos.Add(triangulo);
+            if (triangulo.ValidarTriangulos() == true)
+            {
+                triangulos.Add(triangulo);
+            }
         }
 
         public bool Editar(int codigoAlterar, double lado01, double lado02, double lado03)

@@ -20,7 +20,7 @@ namespace OrientacaoObjetosExerciciosTest.ExercicioTest04
             farmacia.NomeProduto01 = NomeProduto01;
 
             // Act
-            var 
+            var fara = NomeProduto01; 
         }
 
     }

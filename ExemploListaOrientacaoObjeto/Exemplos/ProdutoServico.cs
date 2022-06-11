@@ -102,5 +102,106 @@ namespace ExemploListaOrientacaoObjeto.Exemplos
             }
             return null;
         }
+
+        // Novo modo: 
+        public Produto ObterMenorPrecoUnitario()
+        {
+            double menorPrecoUnitario = double.MaxValue;
+
+            Produto produtoMenorPrecoUnitario = null;
+
+            //Percorre a lista de produtos para obter o produto com o menor preço Unitátio
+            // Obtém o produto atual da lista que está sendo percorrida
+            for (int indice = 0; indice < produtos.Count; indice++)
+            {
+                Produto produto = produtos[indice];
+
+            // Verificar se o produto atual possui o menor preço unitário
+                if (produto.PrecoUnitario < menorPrecoUnitario)
+                {
+                    // armazena o preço unitário, pois é o menor preço unitárioaté o momento
+                    menorPrecoUnitario = produto.PrecoUnitario;
+
+                    // armazena o produto para posteriormente saber qual é o produto com o menor preçi unitário
+                    produtoMenorPrecoUnitario = produto;
+                }
+            }
+            return produtoMenorPrecoUnitario;
+        }
+        public List<double> ObterTodosPrecos()
+        {
+            // Criar uma lista de preço
+            var precos = new List<double>();
+
+            // Percorre todos os produtos
+            for (int indice = 0; indice < produtos.Count; indice++)
+            {
+                // Obtém o preço total na lista de preços
+                var produto = produtos[indice];
+
+                // Adiciona o preço total na lista de preços
+                precos.Add(produto.CalcularPrecoTotal());
+            }
+            return precos;
+        }
+        public List<double> ObterPrecosTotaisFiltradosPorLocalizacao(ProdutoLocalizacao localizacao)
+        {
+            // Criar uma lista de preços totais
+            var precos = new List<double>();
+
+            // Percorre todos os produtos
+            for (int indice = 0; indice < produtos.Count; indice++)
+            {
+                // Obtém o produto atual da lista de produtos
+                var produto = produtos[indice];
+
+                // Verfifica se a localização do produto atual é a localização passada no parâmetro
+                if (produto.Localizacao == localizacao)
+                {
+                    // adiciona o preço total do produto atual que foi filtrado por localização
+                    precos.Add(produto.CalcularPrecoTotal());
+                }
+            }
+            return precos;
+        }
+        public List<double> ObterPrecosTotaisDoArmazen()
+        {
+            // Criar uma lista de preços totais
+            var precos = new List<double>();
+
+            // Percorre todos os produtos
+            for (int indice = 0; indice < produtos.Count; indice++)
+            {
+                // Obtém o produto atual da lista de produtos
+                var produto = produtos[indice];
+
+                // Verificar se a localização do produto atual é armazem
+                if (produto.Localizacao == ProdutoLocalizacao.Armazem)
+                {
+                    // Adiciona o preço total do produto atual que foi filtrado por armazén
+                    precos.Add(produto.CalcularPrecoTotal());
+                }
+            }
+            return precos;
+        }
+        public double ObterMediaPrecosTotais()
+        {
+            var somaPrecosTotais = 0.0;
+
+            // Percorre todos os produtos
+            for (int indice = 0; indice < produtos.Count; indice++)
+            {
+                // Obtém o produto atual da lista de produtos
+                var produto = produtos[indice];
+
+                // Adiciona o preço total do produto na variável soma de preços totais
+                somaPrecosTotais += produto.CalcularPrecoTotal();
+            }
+
+            // Calcular a média de acordo com a quantidade de produtos
+            var media = somaPrecosTotais / produtos.Count;
+
+            return media;
+        }
     }
 }
