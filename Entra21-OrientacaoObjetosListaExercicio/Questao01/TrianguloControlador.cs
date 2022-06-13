@@ -129,7 +129,7 @@ Tamanho Lado03: {triangulo.Lado03}");
         {
             int codigo = 0;
 
-            while (codigo < 1 || codigo >= 5)
+            while (codigo < 1 || codigo > 5)
             {
                 try
                 {

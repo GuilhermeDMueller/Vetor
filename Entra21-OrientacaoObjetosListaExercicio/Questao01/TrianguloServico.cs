@@ -26,6 +26,14 @@ namespace Entra21_OrientacaoObjetosListaExercicio.Questao01
             {
                 triangulos.Add(triangulo);
             }
+            else if (triangulo.ValidarEhEquilatero() == true)
+            {
+                triangulos.Add(triangulo);
+            }
+            else if (triangulo.ValidarEhEscaleno() == true)
+            {
+                triangulos.Add(triangulo);
+            }
         }
 
         public bool Editar(int codigoAlterar, double lado01, double lado02, double lado03)

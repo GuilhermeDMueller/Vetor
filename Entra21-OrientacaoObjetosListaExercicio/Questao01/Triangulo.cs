@@ -29,12 +29,49 @@ namespace Entra21_OrientacaoObjetosListaExercicio
             }
             return true;
         }
-        public void ValidarEhEquilatero()
+        public bool ValidarEhEquilatero()
         {
             if ((Lado01 == Lado02) && (Lado02 == Lado03) && (Lado01 == Lado03))
             {
+                Console.WriteLine("O Triângulo atual é um Triângulo Equilatero.");
 
+                return true;
             }
+            return true;
+        }
+        public bool ValidarEhIsosceles()
+        {
+            if ((Lado01 == Lado02) && (Lado02 == Lado03) && (Lado01 != Lado03))
+            {
+                Console.WriteLine("O triângulo atual é um Triângulo Isosceles.");
+
+                return true;
+            }
+
+            else if ((Lado01 != Lado02) && (Lado02 == Lado03) && (Lado01 == Lado03))
+            {
+                Console.WriteLine("O triângulo atual é um Triângulo Isosceles.");
+
+                return true;
+            }
+
+            else if ((Lado01 == Lado02) && (Lado02 != Lado03) && (Lado01 == Lado03))
+            {
+                Console.WriteLine("O triângulo atual é um Triângulo Isosceles.");
+
+                return true;
+            }
+            return true;
+        }
+        public bool ValidarEhEscaleno()
+        {
+            if ((Lado01 != Lado02) && (Lado02 != Lado03) && (Lado01 != Lado03))
+            {
+                Console.WriteLine("O triângulo atual é um Triângulo Escaleno.");
+
+                return true;
+            }
+            return true;
         }
     }
 }
