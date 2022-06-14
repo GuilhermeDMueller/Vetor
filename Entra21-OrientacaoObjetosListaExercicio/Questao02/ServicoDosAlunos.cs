@@ -57,16 +57,16 @@ namespace Entra21_OrientacaoObjetosListaExercicio.Questao02
 
             return true;
         }
-        public bool EditarNotasAluno(int notasAlterar, double nota01, double nota02, double nota03)
+        public bool EditarNotasAluno(int codigo, double nota01, double nota02, double nota03)
         {
-            Alunos notaAlterar = ObterPorCodigo(notasAlterar);
-            if (notaAlterar == null)
+            Alunos codigos = ObterPorCodigo(codigo);
+            if (codigos == null)
             {
                 return false;
             }
-            notaAlterar.Nota01 = nota01;
-            notaAlterar.Nota02 = nota02;
-            notaAlterar.Nota03 = nota03;
+            codigos.Nota01 = nota01;
+            codigos.Nota02 = nota02;
+            codigos.Nota03 = nota03;
 
             return true;
         }
@@ -74,24 +74,12 @@ namespace Entra21_OrientacaoObjetosListaExercicio.Questao02
         {
             return alunos;
         }
-        public List<Alunos> ObterMediasAlunos()
-        {
-            var media = 0.0;
+        //public List<Alunos> ObterMediasAlunos()
+        //{
+        //    var media = 0.0;
+        //    return media;
 
-        }
-        public List<Alunos> ObterAlunosAprovados()
-        {
-            return AlunosAprovados();
-        }
-        public List<Alunos> ObterAlunosReprovados()
-        {
-            return alunosReprovados();
-        }
-        public List<Alunos> ObterAlunosEmExame()
-        {
-            return alunosExame();
-
-        }
+        //}
         public double ObterMediaPorCodigoMatricula(int codigo, double nota01, double nota02, double nota03)
         {
             var media = 0.0;
@@ -126,5 +114,20 @@ namespace Entra21_OrientacaoObjetosListaExercicio.Questao02
         {
 
         }
+        public bool Apagar(int codigo)
+        {
+            for (int indice = 0; indice < alunos.Count; indice++) ;
+            {
+                Alunos aluno = alunos[1];
+                if(aluno.Codigo == codigo)
+                {
+                    alunos.Remove(aluno);
+
+                    return true;
+                }
+            }
+            return false;
+        }
+        
     }
 }

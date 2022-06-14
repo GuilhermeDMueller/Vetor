@@ -14,22 +14,22 @@ namespace Entra21_OrientacaoObjetosListaExercicio.Questao02
         {
             int codigo = 0;
 
-            while (codigo != 6)
-            {
-                Console.Clear();
+            //while (codigo != 6)
+            //{
+            //    Console.Clear();
 
-                codigo = ApresentarSolicitarMenu();
-                Console.Clear();
+            //    codigo = ApresentarSolicitarMenu();
+            //    Console.Clear();
 
-                if (codigo == 1)
-                {
-                    ApresentarAlunos();
-                }
-                else if (codigo == 2)
-                {
-                    CadastrarAluno();
-                }
-            }
+            //    if (codigo == 1)
+            //    {
+            //        ApresentarAlunos();
+            //    }
+            //    else if (codigo == 2)
+            //    {
+            //        CadastrarAlunos();
+            //    }
+            //}
         }
 
         private void ApresentarAlunos()
@@ -84,6 +84,58 @@ Nota 3: {aluno.Nota03}");
         private void EditarNotasAlunos()
         {
             ApresentarAlunos();
+
+            Console.WriteLine("Código do aluno desejado: ");
+            var codigo = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Nota 1: ");
+            var nota01 = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Nota 2: ");
+            var nota02 = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Nota 3: ");
+            var nota03 = Convert.ToDouble(Console.ReadLine());
+
+            var alterado = servicoDosAlunos.EditarNotasAluno(codigo, nota01, nota02, nota03);
+
+            if (alterado == false)
+            {
+                Console.WriteLine("O aluno digitado não existe.");
+            }
+            else if (alterado == true)
+            {
+                Console.WriteLine("Notas do aluno alterado com sucesso.");
+            }
+        }
+        private void ApagarAluno()
+        {
+            ApresentarAlunos();
+
+            Console.WriteLine("Digite o código do aluno a ser apagado: ");
+            var codigo = Convert.ToInt32(Console.ReadLine());
+
+            var alunoApagado = servicoDosAlunos.Apagar(codigo);
+
+            Console.WriteLine(alunoApagado == true
+                ? "Aluno apagado com sucesso."
+                : "Nenhum aluno cadastrado com esse código.");
+        }
+        private void AlunosAprovados()
+        {
+            
+            //var media = (nota01 + nota02 + nota03) / 3;
+        }
+        private void ApresentarSolicitarMenu()
+        {
+            Console.WriteLine(@"Menu
+1 - Apresentar Alunos
+2 - Cadastrar Alunos
+3 - Editar Notas dos Alunos
+4 - Apagar Alunos
+5 - Apresentar Alunos Aprovados
+Informe a ação desejada: ");
+            //int acaoDesejada = SolicitarCodigo();
         }
     }
 }
