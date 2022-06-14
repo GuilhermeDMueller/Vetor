@@ -8,6 +8,8 @@ namespace Entra21_OrientacaoObjetosListaExercicio.Questao02
 {
     public class Alunos
     {
-
+        public string Nome, MateriaFavorita;
+        public int CodigoMatricula, Idade, Codigo;
+        public double Nota01, Nota02, Nota03, Media;
     }
 }
