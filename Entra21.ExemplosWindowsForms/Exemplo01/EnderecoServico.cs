@@ -15,6 +15,8 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
         public EnderecoServico()
         {
             enderecos = new List<Endereco>();
+
+            LerArquivo();
         }
         // Método Adicionar recebe como parametro o objeto do endereco completodo Form(Controler)
         public void Adicionar(Endereco endereco)
@@ -87,7 +89,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             return null;
         }
 
-        public void SalvarEmArquivo()
+        public void SalvarNoArquivo()
         {
             var enderecosEmJson = JsonConvert.SerializeObject(enderecos);
             File.WriteAllText("endereco.json", enderecosEmJson);
