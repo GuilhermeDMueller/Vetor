@@ -32,6 +32,8 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
             // Irá preencher o ComboBox(campo de seleção) com os pacientes
             PreencherComboBoxComNomesDosPacientes();
+
+            ObterDadosCep();
         }
 
         private void PreencherComboBoxComNomesDosPacientes()
