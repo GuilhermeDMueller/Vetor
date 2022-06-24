@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
     public partial class EnderecosForm : Form
     {
         private EnderecoServico enderecoServico;
+        private PacienteServico pacienteServico;
 
         // Construtor: construir o objeto que está sendo instanciando com as devidas informações u rotinas
         public EnderecosForm()
@@ -21,8 +23,28 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
             enderecoServico = new EnderecoServico();
 
+            // Instanciando objeto de PacienteServico o permitirá listar os pacientes no ComboBox e decorrente
+            // disso será possível o usuário selecionar o mesmo
+            pacienteServico = new PacienteServico();
+
             // Deve apresentar os dados quando a tela for carregada
             PreencherDataGridViewComEnderecos();
+
+            // Irá preencher o ComboBox(campo de seleção) com os pacientes
+            PreencherComboBoxComNomesDosPacientes();
+        }
+
+        private void PreencherComboBoxComNomesDosPacientes()
+        {
+            // Obter lista dos pacientes, que foram cadastrados, ou seja, armazenados no JSON
+            var pacientes = pacienteServico.ObterTodos();
+
+            // Percorrer todos os pacientes adicionando no ComboBox
+            for (int indice = 0; indice < pacientes.Count; indice++)
+            {
+                var paciente = pacientes[indice];
+                comboBox1.Items.Add(paciente.Nome);
+            }
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -37,13 +59,13 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             // Obter os dados preenchidos pelo usuário armazenando em variáveis
             var cep = maskedTextBoxCep.Text;
             var enderecoCompleto = textBoxEnderecoCompleto.Text;
-            var paciente = comboBox1.SelectedItem;
+            var nomePaciente = Convert.ToString(comboBox1.SelectedItem);
 
             // Construir o objeto de endereço com as variáveis
             var endereco = new Endereco();
             endereco.Cep = cep;
             endereco.EnderecoCompleto = enderecoCompleto;
-            // endereco.Paciente = paciente;
+            endereco.Paciente = pacienteServico.ObterPorNomePaciente(nomePaciente);
 
             // Salvar este endereço na lista de endereços e no arquivo JSON
             enderecoServico.Adicionar(endereco);
@@ -76,8 +98,32 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
                     endereco.Codigo,
                     endereco.EnderecoCompleto,
                     endereco.Cep,
-                    "" //endereco.Paciente.Nome 
+                    endereco.Paciente.Nome
                 });
+            }
+        }
+
+        private void ObterDadosCep()
+        {
+            var cep = maskedTextBoxCep.Text.Replace("-", "");
+
+            // HttpClient permite fazer requisições para obter ou enviar dados para outros sistemas
+            var httpClient = new HttpClient();
+
+            // Executando a requisição para o site ViCep para obter os dados do endereço do cep
+            var resultado = httpClient.GetAsync(
+                $"https://viacep.com.br/ws/{cep}/json").Result;
+
+            // Verificar se a requisição deu certo
+            if (resultado.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                // Obter resposta da requisição
+                var resposta = resultado.Content.ReadAsStringAsync().Result;
+
+                var dadosEndereco = JsonConvert.DeserializeObject<EnderecoDadosRequisitados>(resposta);
+
+                textBoxEnderecoCompleto =
+                    $"{dadosEndereco.Uf} - {dadosEndereco.Localidade} - {dadosEndereco.Bairro} - {dadosEndereco.Logradouro}";
             }
         }
     }

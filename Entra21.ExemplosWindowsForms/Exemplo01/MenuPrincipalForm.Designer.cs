@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipalForm));
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonEndereco = new System.Windows.Forms.Button();
             this.buttonPacientes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonEndereco
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(22, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 153);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Endereços";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonEndereco.Image = ((System.Drawing.Image)(resources.GetObject("buttonEndereco.Image")));
+            this.buttonEndereco.Location = new System.Drawing.Point(22, 16);
+            this.buttonEndereco.Name = "buttonEndereco";
+            this.buttonEndereco.Size = new System.Drawing.Size(171, 153);
+            this.buttonEndereco.TabIndex = 0;
+            this.buttonEndereco.Text = "Endereços";
+            this.buttonEndereco.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonEndereco.UseVisualStyleBackColor = true;
+            this.buttonEndereco.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonPacientes
             // 
@@ -63,7 +63,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 194);
             this.Controls.Add(this.buttonPacientes);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonEndereco);
             this.Name = "MenuPrincipalForm";
             this.Text = "MenuPrincipalForm";
             this.ResumeLayout(false);
@@ -72,7 +72,7 @@
 
         #endregion
 
-        private Button button1;
+        private Button buttonEndereco;
         private Button buttonPacientes;
     }
 }
