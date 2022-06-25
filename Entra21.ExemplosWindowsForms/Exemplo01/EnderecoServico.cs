@@ -48,7 +48,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
                 }
             }
         }
-        public void Apagar(int codigoParaApagar)
+        public void Apagar(Endereco codigoParaApagar)
         {
             // Percorre lista de endereços afim de encontrar o enderço que deve ser removido
             for (int indice = 0; indice < enderecos.Count; indice++)
@@ -56,7 +56,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
                 // Obtém o endereço percorrido
                 var endereco = enderecos[indice];
 
-                if (endereco.Codigo == codigoParaApagar)
+                if (endereco.Codigo == codigoParaApagar.Codigo)
                 {
                     // Remove o endereço encontrado da lista de endereços
                     enderecos.Remove(endereco);
@@ -103,6 +103,20 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             // Ler arquivo JSON e converte para uma lista de objetos de endereços
             var enderecoEmJson = File.ReadAllText("enderecos.json");
             enderecos = JsonConvert.DeserializeObject<List<Endereco>>(enderecoEmJson);
+        }
+
+        
+
+        public int ObterUltimoCodigo()
+        {
+            int ultimoCodigo = 0;
+
+            for (int indice = 0; indice < enderecos.Count; indice++)
+            {
+                var endereco = enderecos[indice];
+                ultimoCodigo = endereco.Codigo;
+            }
+            return ultimoCodigo;
         }
     }
 }

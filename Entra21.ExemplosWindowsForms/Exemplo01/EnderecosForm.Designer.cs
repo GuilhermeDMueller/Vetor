@@ -43,7 +43,7 @@
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxPaciente = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +73,7 @@
             this.maskedTextBoxCep.Name = "maskedTextBoxCep";
             this.maskedTextBoxCep.Size = new System.Drawing.Size(265, 23);
             this.maskedTextBoxCep.TabIndex = 2;
+            this.maskedTextBoxCep.Leave += new System.EventHandler(this.maskedTextBoxCep_Leave);
             // 
             // labelEnderecoCompleto
             // 
@@ -101,6 +102,7 @@
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(778, 356);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // ColumnCodigo
             // 
@@ -153,6 +155,7 @@
             this.buttonEditar.TabIndex = 9;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonApagar
             // 
@@ -163,6 +166,7 @@
             this.buttonApagar.TabIndex = 10;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // buttonCancelar
             // 
@@ -186,22 +190,22 @@
             this.buttonSalvar.UseVisualStyleBackColor = true;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
-            // comboBox1
+            // comboBoxPaciente
             // 
-            this.comboBox1.DisplayMember = "Nome";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(794, 176);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(415, 23);
-            this.comboBox1.TabIndex = 13;
+            this.comboBoxPaciente.DisplayMember = "Nome";
+            this.comboBoxPaciente.FormattingEnabled = true;
+            this.comboBoxPaciente.Location = new System.Drawing.Point(794, 176);
+            this.comboBoxPaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxPaciente.Name = "comboBoxPaciente";
+            this.comboBoxPaciente.Size = new System.Drawing.Size(415, 23);
+            this.comboBoxPaciente.TabIndex = 13;
             // 
             // EnderecosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 408);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxPaciente);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonApagar);
@@ -217,6 +221,7 @@
             this.Name = "EnderecosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EnderecosForm";
+            this.Load += new System.EventHandler(this.EnderecosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -236,7 +241,7 @@
         private Button buttonApagar;
         private Button buttonCancelar;
         private Button buttonSalvar;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxPaciente;
         private DataGridViewTextBoxColumn ColumnCodigo;
         private DataGridViewTextBoxColumn ColumnEnderecoCompleto;
         private DataGridViewTextBoxColumn ColumnPaciente;
