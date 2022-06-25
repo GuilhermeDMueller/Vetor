@@ -55,5 +55,65 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             // Converter JSON para lista de objetos de pacientes
             pacientes = JsonConvert.DeserializeObject<List<Paciente>>(pacientesJson);
         }
+
+        public int ObterUltimoCodigo()
+        {
+            int ultimoCodigo = 0;
+
+            for (int indice = 0; indice < pacientes.Count; indice++)
+            {
+                var paciente = pacientes[indice];
+                ultimoCodigo = paciente.Codigo;
+            }
+            return ultimoCodigo;
+        }
+        public void Cadastrar(Paciente paciente)
+        {
+            pacientes.Add(paciente);
+
+            SalvarArquivo();
+        }
+        public void Editar(Paciente pacienteParaEditar)
+        {
+            var paciente = ObterPorCodigo(pacienteParaEditar.Codigo);
+
+            paciente.Nome = pacienteParaEditar.Nome;
+            paciente.Altura = pacienteParaEditar.Altura;
+            paciente.Peso = pacienteParaEditar.Peso;
+
+            SalvarArquivo();
+        }
+        public Paciente ObterPorCodigo(int codigo)
+        {
+            for (int indice = 0; indice < pacientes.Count; indice++)
+            {
+                var paciente = pacientes[indice];
+
+                if (paciente.Codigo == codigo)
+                    return paciente;
+            }
+            return null;
+        }
+        public void Apagar(int codigo)
+        {
+            for (int indice = 0; indice < pacientes.Count; indice++)
+            {
+                var paciente = pacientes[indice];
+
+                if (paciente.Codigo == codigo)
+                {
+                    pacientes.Remove(paciente);
+
+                    SalvarArquivo();
+
+                    return;
+                }
+            }
+        }
+        private void SalvarArquivo()
+        {
+            var pacientesJson = JsonConvert.SerializeObject(pacientes);
+            File.WriteAllText("paientes.json", pacientesJson);
+        }
     }
 }
