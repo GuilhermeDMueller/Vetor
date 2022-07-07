@@ -36,7 +36,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ListaOrientacaoObjetoExerci
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entra21-OrientacaoObjetosListaExercicio", "Entra21-OrientacaoObjetosListaExercicio\Entra21-OrientacaoObjetosListaExercicio.csproj", "{8F36CB65-ABDE-401E-8141-E70367C5F582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entra21.ExemplosWindowsForms", "Entra21.ExemplosWindowsForms\Entra21.ExemplosWindowsForms.csproj", "{1D664CE0-8B71-4524-9393-4FF03CC738B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entra21.ExemplosWindowsForms", "Entra21.ExemplosWindowsForms\Entra21.ExemplosWindowsForms.csproj", "{1D664CE0-8B71-4524-9393-4FF03CC738B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExemplosSQL", "ExemplosSQL", "{CB4A296A-43DA-4E09-952B-1D6A67031E69}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\entra21\ExemplosSQLComandosBasicos.sql = ..\..\..\Desktop\entra21\ExemplosSQLComandosBasicos.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
