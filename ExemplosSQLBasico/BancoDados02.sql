@@ -41,5 +41,55 @@ INSERT INTO endereco (estado, cidade, bairro, cep, logradouro, numero, complemen
 INSERT INTO endereco (estado, cidade, bairro, cep, logradouro, numero, complemento)
 	VALUES ('PB', 'Cabedelo', 'Camalaú', '58.103-052', 'Rua Siqueira Campos', 249, '');
 
+-- Apresentar todos os registros do 'endereco"
 SELECT id, estado, cidade, bairro, cep, logradouro, numero, complemento
 FROM endereco;
+
+-- Filtramento para apresentar registros completos.
+-- Descobrir a quantidade de caracters do registro 'complemento'
+SELECT complemento, DATALENGTH(complemento)
+	FROM endereco;
+
+SELECT MIN(DATALENGTH(complemento))
+	FROM endereco;
+
+-- Filtrar Registros que possuem todas as informações;
+SELECT id, estado, cidade, bairro, cep, logradouro, numero, complemento
+	FROM endereco
+	WHERE estado != '' AND
+	cidade != '' AND
+	bairro != '' AND
+	cep != '' AND
+	logradouro != '' AND
+	numero != -1 AND
+	DATALENGTH(complemento) != 0;
+
+-- Filtramento para apresentar registros que não contenham a informação 'cidade'
+SELECT id, estado, bairro, cep, logradouro, numero, complemento
+	FROM endereco
+	WHERE cidade = '';
+
+-- Filtramento para apresentar registros que contenham a informação 'bairro'
+SELECT id, estado, cidade, bairro, cep, logradouro, numero, complemento
+	FROM endereco
+	WHERE bairro != '';
+
+-- Filtramento para apresentar registros que não contenham a informação 'cep'
+SELECT id, estado, cidade, bairro, logradouro, numero, complemento
+	FROM endereco
+	WHERE cep = '';
+
+-- Filtramento para apresentar registros que não contenham a informação 'logradouro'
+SELECT id, estado, cidade, bairro, cep, numero, complemento
+	FROM endereco
+	WHERE logradouro = '';
+
+-- Filtramento para apresentar registros que contenham a informação 'numero'
+SELECT id, estado, cidade, bairro, cep, logradouro, numero, complemento
+	FROM endereco
+	WHERE numero != -1;
+
+-- Filtramento para apresentar registros que não contenham a informação 'complemento'
+SELECT id, estado, cidade, bairro, cep, logradouro, numero
+	FROM endereco
+	WHERE DATALENGTH(complemento) = 0;
