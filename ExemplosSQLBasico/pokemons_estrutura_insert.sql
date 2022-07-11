@@ -748,3 +748,11 @@ SELECT id, ataque, especial_ataque, defesa, especial_defesa
 SELECT id, nome, categoria, ataque
 	FROM pokemons
 	ORDER BY ataque ASC;
+
+ALTER TABLE pokemons ADD imc DECIMAL(4, 2);
+
+UPDATE pokemons SET imc = ((altura * altura) / peso)
+
+-- 4º Apresentar a 'altura' e o 'peso' acompanhado do IMC
+SELECT id, altura, peso, imc
+	FROM pokemons;
