@@ -106,6 +106,18 @@ SELECT
 INSERT INTO pedidos(id_cliente, status, data_criacao) VALUES
 (1, 0, GETDATE()), -- Pedido para o Claudío
 ((SELECT id FROM clientes WHERE nome = 'Cry'), 0, GETDATE()); -- Pedido para o Cry
-
-SELECT * FROM pedidos;
+-- Consultar pedidos listando, data da criação formato pt-br, status com texto e nome do cliente
+-- Consulta partindo da tabela de pedidos com JOIN em clientes
+SELECT  
+	FORMAT (p.data_criacao, 'dd/MM/yyyy'),
+	CASE
+		WHEN [status] = 0 THEN 'Carrinho'
+		WHEN [status] = 1 THEN 'Aguardando Pagamento'
+		WHEN [status] = 2 THEN 'Pagamento Efetivado'
+		ELSE 'Entrega Realizada'
+	END AS 'Staus Pedido',
+	c.nome
+	FROM pedidos AS p
+	INNER JOIN clientes AS c ON(p.id_cliente = c.id)
+UPDATE pedidos SET status = 1 WHERE id = 2;
 
