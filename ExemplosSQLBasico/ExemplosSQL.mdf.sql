@@ -25,7 +25,7 @@ CREATE TABLE enderecos(
 	FOREIGN KEY (id_cliente) REFERENCES clientes(id)
 	);
 
-	CREATE TABLE pedidos(
+CREATE TABLE pedidos(
 		id INTEGER PRIMARY KEY IDENTITY(1, 1),
 		id_cliente INTEGER NOT NULL,
 		status TINYINT NOT NULL, -- 0..255,
@@ -44,3 +44,32 @@ CREATE TABLE pedidos_pecas(
 	FOREIGN KEY(id_pedido) REFERENCES pedidos(id),
 	FOREIGN KEY(id_peca) REFERENCES pecas(id)
 );
+
+-- Tipos de peças
+-- 1 - SSD
+-- 2 - Placa Vídeo
+-- 3 - Placa Mãe
+-- 4 - Font
+-- 5 - Memória Ram
+
+INSERT INTO pecas(nome, tipo, preco_unitario) VALUES
+('SSD 240 GB', 1, 200),
+('SSD 240 M2', 1, 420.39),
+('RTX 3090 TI', 2, 9999.90),
+('GTX 1060', 2, 1500),
+('16GB DDR5 4800GHZ', 5, 800),
+('16GB DDR4 3200Ghz', 5, 350);
+
+INSERT INTO clientes(nome, cpf) VALUES
+('Claudío', '070.334.489-73'),
+('Cry', '032.599.384-69'),
+('Júliana', '123.495.392-02');
+
+INSERT INTO enderecos(id_cliente, estado, cidade, bairro, cep, logradouro, numero) VALUES
+(1, 'SC', 'Blumenau', 'Velha', '08070-301', 'Rua Divinópolis', 777),
+(1, 'SC', 'Blumenau', 'Velha Grande', '89070-472', 'Morro da Edith', 36),
+(3, 'SC', 'Blumenau', 'Judity', 'Sem cep', 'Rua da Kellen', 23);
+
+SELECT * FROM pecas;
+SELECT * FROM clientes;
+SELECT * FROM enderecos;
