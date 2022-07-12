@@ -73,3 +73,39 @@ INSERT INTO enderecos(id_cliente, estado, cidade, bairro, cep, logradouro, numer
 SELECT * FROM pecas;
 SELECT * FROM clientes;
 SELECT * FROM enderecos;
+
+SELECT 
+	c.nome,
+	c.cpf,
+	CONCAT(
+	e.estado, ' - ',
+	e.cidade, ' - ',
+	e.bairro, ' - ',
+	e.logradouro, ' - ',
+	e.numero) AS 'Endereço Completo'
+	FROM clientes AS c
+	INNER JOIN enderecos AS e ON (e.id_cliente = c.id)
+
+-- Nome Cliente, CPF, Endereço Completo
+
+-- Consultar os endereços apresentando seu cliente filtrando por bairros com nome 'Velha'
+-- Consulta partindo da tabela de endereços com outra consulta na tabela de clientes
+SELECT
+	c.nome,
+	e.bairro,
+	e.logradouro
+	FROM enderecos AS e
+	INNER JOIN clientes AS c ON(c.id = e.id_cliente)
+	WHERE e.bairro LIKE '%Velha%';
+
+-- Status do pedidos
+-- 0 - CARRINHO
+-- 1 - Aguardando Pagamento
+-- 2 - Pagamento Efetivado
+-- 3 - Entrega Realizada
+INSERT INTO pedidos(id_cliente, status, data_criacao) VALUES
+(1, 0, GETDATE()), -- Pedido para o Claudío
+((SELECT id FROM clientes WHERE nome = 'Cry'), 0, GETDATE()); -- Pedido para o Cry
+
+SELECT * FROM pedidos;
+
