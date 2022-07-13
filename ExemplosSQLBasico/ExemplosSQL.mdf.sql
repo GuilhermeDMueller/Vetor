@@ -45,6 +45,7 @@ CREATE TABLE pedidos_pecas(
 	FOREIGN KEY(id_peca) REFERENCES pecas(id)
 );
 
+
 -- Tipos de peças
 -- 1 - SSD
 -- 2 - Placa Vídeo
@@ -119,5 +120,62 @@ SELECT
 	c.nome
 	FROM pedidos AS p
 	INNER JOIN clientes AS c ON(p.id_cliente = c.id)
+
 UPDATE pedidos SET status = 1 WHERE id = 2;
+
+-- Adicionar peças ao pedido
+SELECT * FROM pecas;
+
+--Criar pedido para o Claúdio
+INSERT INTO pedidos (id_cliente, data_criacao, status) VALUES
+	(1, GETDATE(), 0); -- GETDATE() é o mesmo que DATETIME.NOW
+
+INSERT INTO pedidos_pecas(id_pedido, id_peca, quantidade) VALUES
+(3,2,2), -- id_pedido=3, id_peca=2 (SSD 240M2), quantidade=2
+(3,3,2), -- id_pedido=3, id_peca=3 (RTX3090 TI), quantidade=2
+(3,5,4); -- id_pedido=3, id_peca=5 (16Gb RAM DDRS), quantidade=4 Quad Chanel
+
+SELECT * FROM pecas;
+SELECT * FROM pedidos;
+
+-- Consultar apresentando nome cliente, nome peças, quantidade, valor_unitário, total das peças
+SELECT
+	pd.id AS 'Código pedido',
+	pd.status AS 'Status Pedido',
+	c.nome AS 'Cliente',
+	CONCAT(
+		e.estado,'_',
+		e.cidade, '-',		
+		e.bairro, '-',
+		e.bairro, '-',
+		e.logradouro, '-',
+		e.numero) AS 'Endereço Completo'
+	,
+	CONCAT('R$ ', p.preco_unitario) AS 'Valor unitário',
+	CONCAT('R$ ', p.preco_unitario * pp.quantidade) AS 'Total das Peças'
+	FROM pedidos_pecas AS pp
+	INNER JOIN pecas AS p ON(pp.id_peca = p.id)
+	INNER JOIN pedidos AS pd ON(pp.id_pedido = pd.id)
+	INNER JOIN clientes AS c ON(pd.id_cliente = c.id)
+	INNER JOIN enderecos AS e ON(c.id = e.id_cliente)
+	WHERE pd.id_cliente = (SELECT id FROM clientes WHERE cpf = '070.334.489-73');
+
+--Efetivar a compra do pedido do Claúdio
+UPDATE pedidos
+	SET
+		status = 2,
+		data_efetivacao_compra = '2022/07/12 17:30:00'
+	WHERE id = 3;
+
+-- Consultar peças do pedido do Claúdio
+SELECT
+	p.id AS 'Código Peido',
+	p.status AS 'Status Pedido',
+	c.nome AS 'Cliente',
+	pec.nome AS 'Peça'
+	FROM pedidos AS p
+	INNER JOIN clientes AS c ON(p.id_cliente = c.id)
+	INNER JOIN pedidos_pecas AS pp ON(p.id = pp.id_pedido)
+	INNER JOIN pecas AS pec ON(pp.id_peca = pec.id)
+	WHERE p.id_cliente = (SELECT id	FROM clientes WHERE cpf = '070.334.489-73');
 
