@@ -756,3 +756,17 @@ UPDATE pokemons SET imc = ((altura * altura) / peso)
 -- 4º Apresentar a 'altura' e o 'peso' acompanhado do IMC
 SELECT id, altura, peso, imc
 	FROM pokemons;
+
+-- 5º Apresentar a 'altura', o 'peso' e o 'imc', classificando o IMC em ordem decrescente
+SELECT id, altura, peso, imc
+	FROM pokemons
+	ORDER BY imc DESC;
+
+-- 6º Apresentar o 'nome' e o 'altura', classificando pelo nome em ordem decrescente
+SELECT nome, altura
+	FROM pokemons
+	ORDER BY nome DESC;
+
+-- 7º Apresentar 'nome' e 'descrição', quando o nome contiver mais de 10 caracters.
+-- SELECT nome, descricao, 
+-- 	FROM pokemons;
