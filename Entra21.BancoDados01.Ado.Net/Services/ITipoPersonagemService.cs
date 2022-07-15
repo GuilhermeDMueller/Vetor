@@ -11,5 +11,6 @@ namespace Entra21.BancoDados01.Ado.Net.Services
     {
         void Cadastrar(TipoPersonagem tipoPersonagen);
         List<TipoPersonagem> ObterTodos();
+        void Apagar(int id);
     }
 }

@@ -27,6 +27,20 @@ namespace Entra21.BancoDados01.Ado.Net.Views.TiposPersonagens
 
         private void TipoPersonagemListaForm_Load(object sender, EventArgs e)
         {
+            AtualizarRegistroDataGridView();
+        }
+
+        private void buttonCadastrar_Click(object sender, EventArgs e)
+        {
+            var tipoPersonagemCadastroEdicaoForm = new TipoPersonagemCadastroEdicaoFrom();
+
+            tipoPersonagemCadastroEdicaoForm.ShowDialog();
+
+            AtualizarRegistroDataGridView();
+        }
+
+        private void AtualizarRegistroDataGridView()
+        {
             // Obter todos os tipos de personagens cadastrados na tabela
             // tipos_personagens
             var tiposPersonagens = tipoPersonagemService.ObterTodos();
@@ -36,7 +50,7 @@ namespace Entra21.BancoDados01.Ado.Net.Views.TiposPersonagens
 
             // Percorrido todos os tipos de personagens encontrados para
             // adicionar no DataGridView1 permitindo o usuário visualiza-los
-            for(int i = 0; i < tiposPersonagens.Count; i++)
+            for (int i = 0; i < tiposPersonagens.Count; i++)
             {
                 var tipoPersonagem = tiposPersonagens[i];
 
@@ -47,6 +61,17 @@ namespace Entra21.BancoDados01.Ado.Net.Views.TiposPersonagens
                     tipoPersonagem.Tipo
                 });
             }
+        }
+
+        private void buttonApagar_Click(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+            tipoPersonagemService.Apagar(id);
+
+            AtualizarRegistroDataGridView();
+
+            MessageBox.Show("Registro apagdo com sucesso");
         }
     }
 }
