@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entra21.BancoDados01.Ado.Net.Services
 {
-    internal class PersoanegemService : IpersonagemService
+    internal class PersonagemService : IPersonagemService
     {
         public void Apagar(int id)
         {

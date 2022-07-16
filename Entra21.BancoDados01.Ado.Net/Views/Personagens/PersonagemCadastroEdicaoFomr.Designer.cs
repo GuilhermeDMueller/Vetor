@@ -1,6 +1,6 @@
 ﻿namespace Entra21.BancoDados01.Ado.Net.Views.Personagens
 {
-    partial class PersonagemCadastroEdicaoFomr
+    partial class PersonagemCadastroEdicaoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -82,6 +82,7 @@
             this.buttonSalvar.TabIndex = 4;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // textBoxNome
             // 
@@ -92,6 +93,7 @@
             // 
             // comboBoxTipoPersonagem
             // 
+            this.comboBoxTipoPersonagem.DisplayMember = "Tipo";
             this.comboBoxTipoPersonagem.FormattingEnabled = true;
             this.comboBoxTipoPersonagem.Location = new System.Drawing.Point(12, 226);
             this.comboBoxTipoPersonagem.Name = "comboBoxTipoPersonagem";
