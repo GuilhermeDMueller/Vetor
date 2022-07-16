@@ -120,6 +120,31 @@ INNER JOIN editoras AS e ON(p.id_editora = e.id)";
             var tabelaEmMemoria = new DataTable();
             // Executa o SELECT armazenado na tabela em memória
             tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            // Criado lista de personagens para armazenar os registros
+            var personagens = new List<Personagem>();
+
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
+
+                // Instanciando o personagem populando com os dados do SELECT
+                var personagem = new Personagem();
+                personagem.Id = Convert.ToInt32(registro["id"]);
+                personagem.Nome = registro["nome"].ToString();
+
+                // Instanciar a editora para poder armazenar o da editora
+                personagem.Editora = new Editora();
+                personagem.Editora.Id = Convert.ToInt32(registro["editora_id"]);
+                personagem.Editora.Nome = registro["editora_nome"].ToString();
+
+                personagem.TipoPersonagem = new TipoPersonagem();
+                personagem.TipoPersonagem.Id = Convert.ToInt32(registro["tipo_personagem_id"]);
+                personagem.TipoPersonagem.Tipo = registro["tipo_personagem_tipo"].ToString();
+
+                personagens.Add(personagem);
+            }
+            return personagens;
         }
     }
 }
