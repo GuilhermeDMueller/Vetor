@@ -14,9 +14,20 @@ namespace Entra21.BancoDados01.Ado.Net.Views.TiposPersonagens
 {
     public partial class TipoPersonagemCadastroEdicaoFrom : Form
     {
+        // Armazenar o id do tipo do personagem para permitir a edição
+        private int idEdicao = -1;
         public TipoPersonagemCadastroEdicaoFrom()
         {
             InitializeComponent();
+        }
+
+        public TipoPersonagemCadastroEdicaoFrom(TipoPersonagem tipoPersonagem) : this()
+        {
+            // Definidoo valor do idEdicao para posteriormente saber qual registro deve ser apagado
+            idEdicao = tipoPersonagem.Id;
+
+            // Preenchido o campo com o tipo com o valor do banco de dados
+            textBoxTipo.Text = tipoPersonagem.Tipo;
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -30,10 +41,26 @@ namespace Entra21.BancoDados01.Ado.Net.Views.TiposPersonagens
             // persistir o registro
             var tipoPersonagemService = new TipoPersonagemService();
 
-            // Persistir a informaçãona tabela de tipos_personagens
-            tipoPersonagemService.Cadastrar(tipoPersonagem);
+            // Verficar se está em modo de cadastro
+            if(idEdicao == -1)
+            {
+                // Persistir a informaçãona tabela de tipos_personagens
+                tipoPersonagemService.Cadastrar(tipoPersonagem);
 
-            MessageBox.Show("Tipo de personagem cadastrado com sucesso");
+                MessageBox.Show("Tipo de personagem cadastrado com sucesso");
+
+                Close();
+
+                return;
+            }
+
+            tipoPersonagem.Id = idEdicao;
+            // Atualizar a informação na tabela de tipos_personagens
+            tipoPersonagemService.Editar(tipoPersonagem);
+
+            MessageBox.Show("Tipo de personagem alterado com sucesso!!!");
+
+            Close();
         }
     }
 }
