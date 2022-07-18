@@ -30,7 +30,7 @@ namespace Entra21.BancoDados01.Ado.Net.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = "INSERT INTO personagens (id_tipo_personagem_id_editora, nome) VALUES (@ID_TIPO_PERSONAGEM, @ID_EDITORA, @NOME)";
+            comando.CommandText = "INSERT INTO personagens (id_tipo_personagen, id_editora, nome) VALUES (@ID_TIPO_PERSONAGEM, @ID_EDITORA, @NOME)";
 
             // Substituir os @ do insert com os valores preenchidos pelo usuário
             comando.Parameters.AddWithValue("@ID_TIPO_PERSONAGEM",
@@ -69,7 +69,7 @@ namespace Entra21.BancoDados01.Ado.Net.Services
             // Conectando no banco de dados e definindo a query que será executada
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = "SELECT id, id_tipo_personagem, id_editora, nome FROM personagens WHERE id = @ID";
+            comando.CommandText = "SELECT id, id_tipo_personagen, id_editora, nome FROM personagens WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@ID", id);
 
@@ -90,7 +90,7 @@ namespace Entra21.BancoDados01.Ado.Net.Services
             personagem.Editora.Id = Convert.ToInt32(registro["id_editora"]);
 
             personagem.TipoPersonagem = new TipoPersonagem();
-            personagem.TipoPersonagem.Id = Convert.ToInt32(registro["id_tipo_personagem"]);
+            personagem.TipoPersonagem.Id = Convert.ToInt32(registro["id_tipo_personagen"]);
 
             personagem.Nome = registro["nome"].ToString();
 
@@ -112,9 +112,9 @@ p.nome AS 'nome',
 tp.id AS 'tipo_personagem_id',
 tp.tipo AS 'tipo_personagem_tipo',
 e.id AS 'editora_id',
-e.nome AS 'editora_nome',
+e.nome AS 'editora_nome'
 FROM personagens AS p
-INNER JOIN tipos_personagens AS tp ON (p.id_tipo_personagem = tp.id)
+INNER JOIN tipos_personagens AS tp ON (p.id_tipo_personagen = tp.id)
 INNER JOIN editoras AS e ON(p.id_editora = e.id)";
             // Criado tabela em memória para armazenar os registros do SELECT
             var tabelaEmMemoria = new DataTable();

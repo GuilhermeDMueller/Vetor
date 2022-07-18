@@ -73,6 +73,7 @@
             this.buttonCancelar.TabIndex = 3;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonSalvar
             // 
@@ -102,17 +103,18 @@
             // 
             // comboBoxEditora
             // 
+            this.comboBoxEditora.DisplayMember = "nome";
             this.comboBoxEditora.FormattingEnabled = true;
             this.comboBoxEditora.Location = new System.Drawing.Point(12, 137);
             this.comboBoxEditora.Name = "comboBoxEditora";
             this.comboBoxEditora.Size = new System.Drawing.Size(476, 28);
             this.comboBoxEditora.TabIndex = 8;
             // 
-            // PersonagemCadastroEdicaoFomr
+            // PersonagemCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(541, 333);
             this.Controls.Add(this.comboBoxEditora);
             this.Controls.Add(this.comboBoxTipoPersonagem);
             this.Controls.Add(this.textBoxNome);
@@ -121,7 +123,7 @@
             this.Controls.Add(this.labelTipoPersonagem);
             this.Controls.Add(this.labelEditora);
             this.Controls.Add(this.labelNome);
-            this.Name = "PersonagemCadastroEdicaoFomr";
+            this.Name = "PersonagemCadastroEdicaoForm";
             this.Text = "PersonagemCadastroEdicaoFomr";
             this.ResumeLayout(false);
             this.PerformLayout();

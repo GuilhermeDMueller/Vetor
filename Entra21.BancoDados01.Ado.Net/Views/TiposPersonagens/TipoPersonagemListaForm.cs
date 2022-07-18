@@ -33,7 +33,6 @@ namespace Entra21.BancoDados01.Ado.Net.Views.TiposPersonagens
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
             var tipoPersonagemCadastroEdicaoForm = new TipoPersonagemCadastroEdicaoFrom();
-
             tipoPersonagemCadastroEdicaoForm.ShowDialog();
 
             AtualizarRegistroDataGridView();
