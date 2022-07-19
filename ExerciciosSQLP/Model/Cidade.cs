@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExerciciosSQLP.Model
 {
-    internal class UnidadesFederativas
+    public class Cidade
     {
+
     }
 }
