@@ -14,6 +14,7 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Personagens
 {
     public partial class PersonagemCadastroEdicaoForm : Form
     {
+        private readonly int _idParaEditar;
         public PersonagemCadastroEdicaoForm()
         {
             InitializeComponent();
@@ -21,6 +22,40 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Personagens
             PreencherComboBoxTipoPersonagem();
 
             PreencherComboBoxEditoras();
+
+            _idParaEditar = -1;
+        }
+
+        public PersonagemCadastroEdicaoForm(Personagem personagem) : this()
+        {
+            _idParaEditar = personagem.Id;
+
+            textBoxNome.Text = personagem.Nome;
+
+            // Percorrer cada um dos itens do tipo do personagem, paraselecionar o 
+            // que o usuário tinha cadastrado anteriormente
+            for (int indice = 0; indice < comboBoxTipoPersonagem.Items.Count; indice++ )
+            {
+                var tipoPersonagemPercorrido = comboBoxTipoPersonagem.Items[indice] as TipoPersonagem;
+
+                if(tipoPersonagemPercorrido.Id == personagem.TipoPersonagem.Id)
+                {
+                    comboBoxTipoPersonagem.SelectedItem = tipoPersonagemPercorrido;
+                    break;
+                }
+            }
+
+            // Percorrer cada um dos itens da editora, para selecionar o que o usuário
+            // tinha cadastrado
+            for (int indice = 0; indice < comboBoxEditora.Items.Count; indice++)
+            {
+                var editoraPercorrida = comboBoxEditora.Items[indice] as Editora;
+
+                if (editoraPercorrida.Id == personagem.Editora.Id)
+                {
+                    comboBoxEditora.SelectedItem = editoraPercorrida;
+                }
+            }
         }
 
         private void PreencherComboBoxEditoras()
@@ -58,13 +93,24 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Personagens
             personagem.Nome = nome;
             personagem.TipoPersonagem = tipoPersonagem;
             personagem.Editora = editora;
-
-            // Persistir o que o usuário escolheu na tabela de personagns
             var personagemService = new PersonagemService();
-            personagemService.Cadastrar(personagem);
 
-            MessageBox.Show("Personagem cadastrado com sucesso");
-            Close();
+            // Verificar se está no modo de cadastro
+            if (_idParaEditar == -1)
+            {
+                // Persistir o que o usuário escolheu na tabela de personagns
+                personagemService.Cadastrar(personagem);
+                MessageBox.Show("Personagem cadastrado com sucesso");
+                Close();
+            }
+            else
+            {
+                // Modo de exibição
+                personagem.Id = _idParaEditar;
+                personagemService.Editar(personagem);
+                MessageBox.Show("Personagem alterado com sucesso");
+                Close();
+            }
         }
 
         private void PreencherComboBoxTipoPersonagem()

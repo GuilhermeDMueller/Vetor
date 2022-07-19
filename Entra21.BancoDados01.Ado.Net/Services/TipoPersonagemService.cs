@@ -22,7 +22,8 @@ namespace Entra21.BancoDados01.Ado.Net.Services
             var comando = conexao.CreateCommand();
 
             // Definindo o comando para apagar o registro
-            comando.CommandText = "DELETE FROM tipos_personagens WHERE id = " + id;
+            comando.CommandText = "DELETE FROM tipos_personagens WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
 
             // Executando o comando para apagar o registro
             comando.ExecuteNonQuery();
@@ -40,7 +41,8 @@ namespace Entra21.BancoDados01.Ado.Net.Services
             SqlCommand comando = conexao.CreateCommand();
 
             // Especificado o comando que será executado
-            comando.CommandText = "INSERT INTO tipos_personagens (tipo) VALUES (' " + tipoPersonagem.Tipo + "')";
+            comando.CommandText = "INSERT INTO tipos_personagens (tipo) VALUES (@TIPO)";
+            comando.Parameters.AddWithValue("@TIPO", tipoPersonagem.Tipo);
 
             // Executando o comando de insert na tabela de tipos personagens
             comando.ExecuteNonQuery();
@@ -97,7 +99,9 @@ namespace Entra21.BancoDados01.Ado.Net.Services
 
             // Conectando no banco de dados e definido a query que será executada
             var comando = conexao.CreateCommand();
-            comando.CommandText = "UPDATE tipos_personagens SET tipo = '" + tipoPersonagem.Tipo + "' WHERE id = " + tipoPersonagem.Id;
+            comando.CommandText = "UPDATE tipos_personagens SET tipo = @TIPO WHERE id = @ID";
+            comando.Parameters.AddWithValue("@Tipo", tipoPersonagem.Tipo);
+            comando.Parameters.AddWithValue("@ID", tipoPersonagem.Id);
 
             // Executa o UPDATE na tabela de tipos_personagens
             comando.ExecuteNonQuery();
@@ -112,7 +116,8 @@ namespace Entra21.BancoDados01.Ado.Net.Services
 
             // Conectando no banco de dados e definindo a query que será executada
             var comando = conexao.CreateCommand();
-            comando.CommandText = "SELECT id, tipo FROM tipos_personagens WHERE id = '" + id + "'";
+            comando.CommandText = "SELECT id, tipo FROM tipos_personagens WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
 
             // instanciando tabela em memória para armazenar os registros retornados
             // da consulta SELECT
@@ -129,9 +134,9 @@ namespace Entra21.BancoDados01.Ado.Net.Services
 
             var tipoPersonagem = new TipoPersonagem();
             // Obter a primeira coluna do SELECT que é o id
-            tipoPersonagem.Id = Convert.ToInt32(primeiroRegistro[0]);
+            tipoPersonagem.Id = Convert.ToInt32(primeiroRegistro["id"]);
             // Obter a segunda coluna do SELECT que é o tipo
-            tipoPersonagem.Tipo = primeiroRegistro[1].ToString();
+            tipoPersonagem.Tipo = primeiroRegistro["tipo"].ToString();
 
             // Fechar conexão
             comando.Connection.Close();
